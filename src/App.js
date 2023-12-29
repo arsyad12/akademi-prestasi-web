@@ -6,6 +6,7 @@ import {
 
 
 import Home from './page/home';
+import Profile from './page/profil';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,14 @@ const router = createBrowserRouter([
     element: (
       <div>
         <Home/>
+       </div>
+    ),
+  },
+  {
+    path: "/api/auth/google/callback",
+    element: (
+      <div>
+        <Profile/>
        </div>
     ),
   },
