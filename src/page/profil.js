@@ -1,10 +1,11 @@
 import axios from "axios"; //import axios
 import React from "react";
+import { useNavigate } from "react-router";
 
 function Profile() {
+ const navigate = useNavigate()
   const [dataUser,setDataUser] = React.useState([]);
   const [tokenAuth,setTokenAuth] = React.useState(undefined);
-
   console.log(dataUser)
   console.log(tokenAuth)
 
@@ -28,6 +29,7 @@ function Profile() {
 
   React.useEffect(() => {
     getData()
+    navigate("/")
   }, []);
 
   return (

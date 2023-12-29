@@ -1,88 +1,111 @@
-import axios from "axios"; //import axios
-import React from "react";
+import { Link } from "react-router-dom";
+
+import Header from "../components/header"
 
 function Home() {
-  const [urlAuth, setUrlAuth] = React.useState(undefined);
+  return(
+    <>
+      
+    
+    <div className="bg-cyan-500">
+      <div className="bg-white shadow-lg shadow-cyan-600">
+    <Header/>
+    </div>
+    <div className="container mx-auto">
+    <div className="grid  grid-cols-1 md:grid-cols-3 items-center m-20">
+      <div className="order-last md:order-first md:col-span-2">
+        <h1 className="h1 mb-8 font-bold text-[30px]">
+        Spesialis Bimbel Karantina Garansi Lulus SBMPTN, PTN Favorit dan Kedokteran.
+        </h1>
+        <Link href={'/talent-list'}>
+        <button class="p-2 rounded border-4 mt-10 btn-start mb-10 border-orange-600 bg-orange-600 text-white">
+          Mulai Konsultasi
+        </button>
+        </Link>
+      </div>
+      <div className="">
+        <img className="" src="/img/banner1.png" alt="logo" />
+      </div>
+    </div>
+  </div>
 
-  const getURLOauth = async () => {
-    try {
-      const hitGoogleAuth = await axios
-        .get("https://api.goprestasi.com/api/login/google")
-        .then((res) => {
-          setUrlAuth(res.data.url);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } catch (error) {}
-  };
+  {/*End of Section 1 */}
 
-  React.useEffect(() => {
-    getURLOauth();
-  }, []);
-
-  return (
-    <div className="Parent h-dvh border bg-cyan-400">
-      <div className="container mx-auto my-10">
-        <div className="head">
-          <h1 className="text-3xl font-bold text-center text-cyan-900">
-            Akademi Prestasi Indonesia
-          </h1>
+  {/*Section 2 */}
+  <div className="container mx-auto mt-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center m-20">
+      
+      <div className="col-span-1 ">
+        <div className="bg-cyan-400 rounded-full flex justify-center mb-5">
+        <img src="/img/banner2.png" alt="logo" />
         </div>
+      </div>
 
-        <div className="flex justify-center">
-          <div className="flex justify-center border border-cyan-400 bg-cyan-400 mt-10 w-1/2 shadow-lg shadow-cyan-600">
-            <div className="grid grid-rows-1 m-10 w-80 text-cyan-900">
-              <div className=" grid grid-cols-1">
-                <label className="mr-10">Email</label>
-                <input className="p-2 rounded outline-none" type="text"></input>
-              </div>
-
-              <div className=" grid grid-cols-1 mt-4 text-cyan-900">
-                <label className="mr-10">Password</label>
-                <input className="p-2 rounded outline-none" type="text"></input>
-              </div>
-
-              <div>
-                <button className="w-full mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3">
-                  Login
-                </button>
-              </div>
-
-              <div className="text-center mt-6 text-cyan-900">
-                <p>Or SignIn Using</p>
-              </div>
-
-              <div className="grid grid-cols-3 gap-4">
-                <a href={urlAuth} className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center"
-                >
-                  <img
-                    className="h-6 w-6 rounded-full"
-                    src="/img/google.png"
-                    alt="googlepicture"
-                  />
-                </a>
-                <a href="https://twitter.com/login" className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center">
-                  <img
-                    className="h-6 w-6 rounded-full"
-                    src="/img/x.png"
-                    alt="xpicture"
-                  />
-                </a>
-                <a href="https://id-id.facebook.com" className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center">
-                  <img
-                    className="h-6 w-6 rounded-full"
-                    src="/img/fb.png"
-                    alt="fbpicture"
-                  />
-                </a>
-              </div>
+      <div className="col-span-1 mx-10">
+        <h1 className="font-bold text-[15px] text-center md:text-left md:text-[25px] mb-10">
+         Program Unggulan Akademi Prestasi
+        </h1>
+        {["Karantina Bergaransi", "Privat Bergaransi", "Intensif Class", "Online Class"]?.map(
+          (item, key) => (
+            <div key={key} className="flex gap-4 mb-6">
+              <img src="/tick2.png" />
+              <p className="text-[12px] md:text-[15px]">{item}</p>
             </div>
+          )
+        )}
+      </div>
+      
+    </div>
+  </div>
+  {/*End of Section 2 */}
+
+  {/*Section 3 */}
+  <div className="container mx-auto mt-20 d-dekstop">
+    <div className="grid grid-cols-1 md:grid-cols-3 items-center m-20">
+      <div className="content-text order-last md:order-first md:col-span-2">
+      <h1 className="font-bold text-[15px] md:text-center md:text-[30px] mb-5">
+         Road To Succes 
+        </h1>
+        <div className="grid grid-cols-1">
+          <div>
+            {["Holistic Assessment", "Personalized Program", "Coaching & Mentoring", "Karantina Intensif", "Best Result"]?.map((item, key) => (
+              <div key={key} className="flex gap-4 mb-6 md:mx-40">
+                <img src="/tick2.png" />
+                <p>{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+      <div className="bg-cyan-400 rounded-full flex justify-center mb-5">
+        <img src="/img/banner3.png" />
+      </div>
     </div>
-  );
-}
+  </div>
+
+  {/*End of Section 3 */}
+
+  {/*Section 4 CTA */}
+  <div className="grid place-items-center mt-20">
+    <div className="box-cta border-4 m-10 md:m-20  border-cyan-600 bg-cyan-600 grid grid-cols-1 md:grid-cols-2 items-center md:m-20 p-20 rounded-tr-xl rounded-bl-xl">
+      <div className="text-[12px] text-white text-justify md:text-justify md:px-10 md:text-[23px] md:text-white ">
+        <span>Saat nya jadi mahasiswa baru di kampus PTN Favorit dan kampus Kedokteran PTN bersama 
+        <span className="text-yellow-300"> Akademi Prestasi ..! </span>
+        </span>
+      </div>
+      <div className="grid mt-5 md:grid-cols-1 justify-center md:justify-items-end">
+      <Link href={'/talent-list'}>
+        <button className="border-4 p-2 btn-cta  border-orange-600 bg-orange-600 text-white rounded-xl">
+          Mulai Dari Sekarang
+        </button>
+        </Link>
+      </div>
+    </div>
+  </div>
+  </div>
+  {/*End of Section 4 */}
+
+ </>
+)}
 
 export default Home;
