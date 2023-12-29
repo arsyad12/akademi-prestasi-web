@@ -7,6 +7,7 @@ import {
 import Home from './page/home';
 import Login from './page/login';
 import GetData from './page/getData';
+import Profile from './page/profile';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,14 @@ const router = createBrowserRouter([
     element: (
       <div>
         <GetData/>
+       </div>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <div>
+        <Profile/>
        </div>
     ),
   },

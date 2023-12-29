@@ -5,6 +5,10 @@ import "../App.css";
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = React.useState(false); // initiate isNavOpen state with false
+  const [profileOpen, setProfileOpen] = React.useState(false);
+  const [dataUser, setDataUser] = React.useState(
+    JSON.parse(localStorage.getItem("profile"))
+  );
 
   return (
     <>
@@ -19,19 +23,52 @@ function Header() {
               alt="logo"
             />
           </Link>
-          <div className="invisible md:visible flex gap-3">
-            <Link to="/login">
-              <button className="p-1 rounded border-4 btn-signin w-1/8 border-cyan-600 bg-cyan-600 text-white">
-                Masuk
-              </button>
-            </Link>
-            <Link to="/">
-              <button className="p-1 rounded border-4 btn-signup w-1/8  border-cyan-600 bg-cyan-600 text-white">
-                Daftar
-              </button>
-            </Link>
-          </div>
+          {!dataUser ? (
+            <div className="invisible md:visible flex gap-3">
+              <Link to="/login">
+                <button className="p-1 rounded border-4 btn-signin w-1/8 border-cyan-600 bg-cyan-600 text-white">
+                  Signin
+                </button>
+              </Link>
+              <Link to="/">
+                <button className="p-1 rounded border-4 btn-signup w-1/8  border-cyan-600 bg-cyan-600 text-white">
+                  Register
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <div className="invisible md:visible flex gap-3">
+              <button className="p-1 rounded border rounded-full btn-signin w-1/8 border-cyan-600 bg-cyan-600 text-white">
+                <img
+                  className="w-10 h-10 rounded-full"
+                  src={dataUser?.image}
+                  alt="userPhoto"
+                  onClick={() => setProfileOpen((isFalse) => !isFalse)}
+                />
 
+                {profileOpen ? (
+                  <ul className="mt-2 p-3 border border-2 border-[#FFFFFF] bg-[#FFFFFF] text-[#5E50A1] drop-shadow-md absolute right-0 invisible md:visible mr-10">
+                    <Link to={"/profile"}>
+                      <li className="mt-[10px]">
+                        <button>Profile</button>
+                      </li>
+                    </Link>
+                    <li className="mt-[10px]">
+                      <button
+                        onClick={() => {
+                          localStorage.removeItem("profile");
+                          localStorage.removeItem("token");
+                          window.location.href = "/";
+                        }}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                ) : null}
+              </button>
+            </div>
+          )}
           <section className="MOBILE-MENU flex md:hidden ">
             <div
               className="HAMBURGER-ICON h-[50px] w-[50px] pr-4"
@@ -58,28 +95,43 @@ function Header() {
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </div>
-              <div className="container ">
-                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
-                  <Link href={"/"}>
-                    <p>HOME</p>
-                  </Link>
+              {dataUser ? (
+                <div className="container ">
+                  <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
+                    <Link to={"/profile"}>
+                      <p>Profil</p>
+                    </Link>
+                  </div>
+                  <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
+                    <Link to={"/"}>
+                      <p>Home</p>
+                    </Link>
+                  </div>
+                  <div
+                    className="flex items-center justify-center pt-[15px] text-[#5E50A1]"
+                    onClick={() => {
+                      localStorage.removeItem("profile");
+                      localStorage.removeItem("token");
+                      window.location.href = "/";
+                    }}
+                  >
+                    <p>Logout</p>
+                  </div>
                 </div>
-                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
-                  <Link href={"/login"}>
-                    <p>Signin</p>
-                  </Link>
+              ) : (
+                <div className="container ">
+                  <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
+                    <Link to={"/login"}>
+                      <p>Signin</p>
+                    </Link>
+                  </div>
+                  <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
+                   
+                      <p>Register</p>
+                  
+                  </div>
                 </div>
-                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
-                  <Link href={"/signup"}>
-                    <p>Signup</p>
-                  </Link>
-                </div>
-                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
-                  <Link href={"/talent-list"}>
-                    <p>Talent List</p>
-                  </Link>
-                </div>
-              </div>
+              )}
             </div>
           </section>
         </nav>
