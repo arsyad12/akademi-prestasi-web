@@ -2,12 +2,13 @@ import axios from "axios"; //import axios
 import React from "react";
 import { useNavigate } from "react-router";
 
-function Profile() {
+function GetData() {
  const navigate = useNavigate()
   const [dataUser,setDataUser] = React.useState([]);
   const [tokenAuth,setTokenAuth] = React.useState(undefined);
-  console.log(dataUser)
-  console.log(tokenAuth)
+
+  localStorage.setItem("token",tokenAuth)
+  localStorage.setItem("profile",JSON.stringify(dataUser))
 
   const getData =async()=>{
     try {
@@ -49,4 +50,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default GetData;
