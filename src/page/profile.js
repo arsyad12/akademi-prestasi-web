@@ -1,14 +1,25 @@
 import React from "react";
 import Header from "../components/header";
+import { useNavigate } from "react-router";
 
 function Profile() {
+  const navigate = useNavigate()
+
+  React.useEffect(() => {
+   if (!dataUser) {
+     navigate("/")
+    }
+   }, [])
+
     const [dataUser, setDataUser] = React.useState(
         JSON.parse(localStorage.getItem("profile"))
       );
+
+
 return(
     <>
       <div className="bg-[#f8f7f7] ">
-    <div className="bg-white shadow shadow-lg shadow-gray-400">
+    <div className="bg-white shadow shadow-md shadow-gray-400">
     <Header/>
     </div>
         <div className="wrap2border p-10 m-10">

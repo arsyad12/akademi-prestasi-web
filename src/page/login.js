@@ -22,16 +22,15 @@ function Login() {
   }, []);
 
   return (
-    <div className="Parent h-dvh border bg-cyan-400">
+    <div className="Parent h-full border bg-cyan-400">
       <div className="container mx-auto my-10">
-        <div className="head">
-          <h1 className="text-3xl font-bold text-center text-cyan-900">
-            Akademi Prestasi Indonesia
-          </h1>
+     
+        <div className="m-10 flex justify-center">
+          <img className="md:w-80 md:h-14" src="/img/logo.png" alt="logo" />
         </div>
-
+       
         <div className="flex justify-center">
-          <div className="flex justify-center border border-cyan-400 bg-cyan-400 mt-10 w-1/2 shadow-lg shadow-cyan-600">
+          <div className="flex justify-center border border-cyan-400 bg-cyan-400 w-full   md:w-1/2 shadow-lg shadow-cyan-600">
             <div className="grid grid-rows-1 m-10 w-80 text-cyan-900">
               <div className=" grid grid-cols-1">
                 <label className="mr-10">Email</label>
