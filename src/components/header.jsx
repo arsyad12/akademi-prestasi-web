@@ -38,7 +38,7 @@ function Header() {
             </div>
           ) : (
             <div className="invisible md:visible flex gap-3">
-              <button className="p-1 rounded border rounded-full btn-signin w-1/8 border-cyan-600 bg-cyan-600 text-white">
+              <button className="p-1 border rounded-full btn-signin w-1/8 border-cyan-600 bg-cyan-600 text-white">
                 <img
                   className="w-10 h-10 rounded-full"
                   src={dataUser?.image}
@@ -47,7 +47,7 @@ function Header() {
                 />
 
                 {profileOpen ? (
-                  <ul className="mt-2 p-3 border border-2 border-[#FFFFFF] bg-[#FFFFFF] text-[#5E50A1] drop-shadow-md absolute right-0 invisible md:visible mr-10">
+                  <ul className="mt-2 p-3 border-2 border-[#FFFFFF] bg-[#FFFFFF] text-[#5E50A1] drop-shadow-md absolute right-0 invisible md:visible mr-10">
                     <Link to={"/profile"}>
                       <li className="mt-[10px]">
                         <button>Profile</button>

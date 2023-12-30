@@ -78,7 +78,7 @@ function Home() {
                 "Online Class",
               ]?.map((item, key) => (
                 <div key={key} className="flex gap-4 mb-6">
-                  <img src="/tick2.png" />
+                  <img src="/tick2.png" alt="pic1"/>
                   <p className="text-[12px] md:text-[15px]">{item}</p>
                 </div>
               ))}
@@ -104,7 +104,7 @@ function Home() {
                     "Best Result",
                   ]?.map((item, key) => (
                     <div key={key} className="flex gap-4 mb-6 md:mx-40">
-                      <img src="/tick2.png" />
+                      <img src="/tick2.png"  alt="pict1"/>
                       <p>{item}</p>
                     </div>
                   ))}
@@ -112,7 +112,7 @@ function Home() {
               </div>
             </div>
             <div className="bg-cyan-400 rounded-full flex justify-center mb-5">
-              <img src="/img/banner3.png" />
+              <img src="/img/banner3.png" alt="pic2"/>
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@ function Home() {
 
         {/*Section 4 CTA */}
         <div className="grid place-items-center mt-20">
-          <div className="box-cta border-4 m-10 md:m-20  border-cyan-600 bg-cyan-600 grid grid-cols-1 md:grid-cols-2 items-center md:m-20 p-20 rounded-tr-xl rounded-bl-xl">
+          <div className="box-cta border-4 m-10  border-cyan-600 bg-cyan-600 grid grid-cols-1 md:grid-cols-2 items-center md:m-20 p-20 rounded-tr-xl rounded-bl-xl">
             <div className="text-[12px] text-white text-justify md:text-justify md:px-10 md:text-[23px] md:text-white ">
               <span>
                 Saat nya jadi mahasiswa baru di kampus PTN Favorit dan kampus
