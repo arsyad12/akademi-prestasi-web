@@ -19,9 +19,9 @@
 # About The Project
 
 1. Technical test integration login by API :
-https://api.goprestasi.com/api/login/google
-http://localhost:3000/api/auth/google/callback
-https://api.goprestasi.com/api/auth/google/callback
+- https://api.goprestasi.com/api/login/google
+- http://localhost:3000/api/auth/google/callback
+- https://api.goprestasi.com/api/auth/google/callback
 
 2. design Login Page
 3. Protect Route To Page consultation and profile, user canot acces before login
