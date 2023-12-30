@@ -1,7 +1,14 @@
 import axios from "axios"; //import axios
 import React from "react";
 
+import LoginBtn from "../components/loginbtn";
+
+import { gapi } from "gapi-script";
+
+const clientId = "951487084376-n5c48d1ep4tqdsgd4pg44pse3aul0ofl.apps.googleusercontent.com"
+
 function Login() {
+
   const [urlAuth, setUrlAuth] = React.useState(undefined);
 
   const getURLOauth = async () => {
@@ -17,18 +24,27 @@ function Login() {
     } catch (error) {}
   };
 
+
+  const start =()=>{
+    gapi.client.init({
+      clientId : clientId,
+      scope:""
+    })
+  }
+
   React.useEffect(() => {
     getURLOauth();
+    gapi.load("client:auth2",start)
   }, []);
 
   return (
     <div className="Parent h-full border bg-cyan-400">
       <div className="container mx-auto my-10">
-     
         <div className="m-10 flex justify-center">
           <img className="md:w-80 md:h-14" src="/img/logo.png" alt="logo" />
         </div>
        
+     <LoginBtn/>
         <div className="flex justify-center">
           <div className="flex justify-center border border-cyan-400 bg-cyan-400 w-full   md:w-1/2 shadow-lg shadow-cyan-600">
             <div className="grid grid-rows-1 m-10 w-80 text-cyan-900">
