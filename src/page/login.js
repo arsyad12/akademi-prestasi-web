@@ -1,14 +1,7 @@
 import axios from "axios"; //import axios
 import React from "react";
 
-import LoginBtn from "../components/loginbtn";
-
-import { gapi } from "gapi-script";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-const clientId = "951487084376-n5c48d1ep4tqdsgd4pg44pse3aul0ofl.apps.googleusercontent.com"
-
 function Login() {
-
   const [urlAuth, setUrlAuth] = React.useState(undefined);
 
   const getURLOauth = async () => {
@@ -24,17 +17,10 @@ function Login() {
     } catch (error) {}
   };
 
-
-  const start =()=>{
-    gapi.client.init({
-      clientId : clientId,
-      scope:""
-    })
-  }
+  
 
   React.useEffect(() => {
     getURLOauth();
-    gapi.load("client:auth2",start)
   }, []);
 
   return (
@@ -43,9 +29,6 @@ function Login() {
         <div className="m-10 flex justify-center">
           <img className="md:w-80 md:h-14" src="/img/logo.png" alt="logo" />
         </div>
-      <GoogleOAuthProvider clientId={clientId}>
-     <LoginBtn/>
-     </GoogleOAuthProvider>
         <div className="flex justify-center">
           <div className="flex justify-center border border-cyan-400 bg-cyan-400 w-full   md:w-1/2 shadow-lg shadow-cyan-600">
             <div className="grid grid-rows-1 m-10 w-80 text-cyan-900">
@@ -70,7 +53,9 @@ function Login() {
               </div>
 
               <div className="grid grid-cols-3 gap-4">
-                <a href={urlAuth} className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center"
+                <a
+                  href={urlAuth}
+                  className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center"
                 >
                   <img
                     className="h-6 w-6 rounded-full"
@@ -78,14 +63,20 @@ function Login() {
                     alt="googlepicture"
                   />
                 </a>
-                <a href="https://twitter.com/login" className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center">
+                <a
+                  href="https://twitter.com/login"
+                  className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center"
+                >
                   <img
                     className="h-6 w-6 rounded-full"
                     src="/img/x.png"
                     alt="xpicture"
                   />
                 </a>
-                <a href="https://id-id.facebook.com" className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center">
+                <a
+                  href="https://id-id.facebook.com"
+                  className=" w-15 h-15 mt-5 border border-solid border-cyan-500 bg-cyan-500 text-center text-white p-3 rounded-full flex justify-center"
+                >
                   <img
                     className="h-6 w-6 rounded-full"
                     src="/img/fb.png"
