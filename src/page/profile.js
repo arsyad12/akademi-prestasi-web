@@ -19,7 +19,7 @@ function Profile() {
             <Header />
           </div>
           <div className="wrap2border p-10 m-10">
-            <div className="container mx-auto border rounded-t-[10px] bg-[#5E50A1] h-[100px] flex justify-center pt-12">
+            <div className="container mx-auto border rounded-t-[10px] bg-cyan-500 h-[100px] flex justify-center pt-12">
               <img
                 src={dataUser.image}
                 alt="avatar"
