@@ -45,7 +45,7 @@ git clone https://github.com/arsyad12/akademi-prestasi-web.git
 
 ```
 
-2. Change directory to Tickets-Web-App
+2. Change directory to akademi-prestasi-web
 
 ```sh
 cd akademi-prestasi-web
