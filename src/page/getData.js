@@ -30,9 +30,9 @@ function GetData() {
 
   React.useEffect(() => {
     getData()
-    // setTimeout(() => {
+    setTimeout(() => {
       navigate("/")
-    // }, 3000);
+    }, 3000);
   }, []);
 
   return (
